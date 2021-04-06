@@ -53,7 +53,7 @@
             this.btnSignIn.TabIndex = 1;
             this.btnSignIn.Text = "Sign In";
             this.btnSignIn.UseVisualStyleBackColor = true;
-            this.btnSignIn.Click += new System.EventHandler(this.button1_Click);
+            this.btnSignIn.Click += new System.EventHandler(this.Button1_Click);
             // 
             // Password_Bank
             // 

@@ -33,7 +33,6 @@
             this.btnNew = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.btnRefresh = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // pList
@@ -53,7 +52,7 @@
             this.btnToggleHide.Location = new System.Drawing.Point(32, 1069);
             this.btnToggleHide.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnToggleHide.Name = "btnToggleHide";
-            this.btnToggleHide.Size = new System.Drawing.Size(437, 72);
+            this.btnToggleHide.Size = new System.Drawing.Size(1112, 72);
             this.btnToggleHide.TabIndex = 1;
             this.btnToggleHide.Text = "Hide/Show Passwords";
             this.btnToggleHide.UseVisualStyleBackColor = true;
@@ -95,24 +94,11 @@
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.button3_Click);
             // 
-            // btnRefresh
-            // 
-            this.btnRefresh.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefresh.Location = new System.Drawing.Point(707, 1069);
-            this.btnRefresh.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(437, 72);
-            this.btnRefresh.TabIndex = 5;
-            this.btnRefresh.Text = "Refresh List";
-            this.btnRefresh.UseVisualStyleBackColor = true;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
-            // 
             // PassList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1179, 1174);
-            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnNew);
@@ -133,6 +119,5 @@
         private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnRefresh;
     }
 }

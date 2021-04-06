@@ -25,6 +25,8 @@ namespace Password_Bank
         {
             NewPass newPassForm = new NewPass();
             newPassForm.ShowDialog();
+
+            if (!newPassForm.Visible) RefreshList();
         }
 
         // "Update Password" button
@@ -44,6 +46,8 @@ namespace Password_Bank
                     updateForm.Password = pList.SelectedItems[0].SubItems[2].Text;  // Password
 
                     updateForm.ShowDialog();
+
+                    if (!updateForm.Visible) RefreshList();
                 }
                 else // If passwords are hidden, prompt the user to show the passwords before continuing.
                 {
@@ -100,7 +104,7 @@ namespace Password_Bank
                         }
 
                         writer.Close();
-
+                        RefreshList();
                     }
                     catch (IOException exception)
                     {
@@ -123,10 +127,12 @@ namespace Password_Bank
             RefreshList();
         }
 
+        /** This method is obsolete because the program refreshes itself after user interaction.
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             RefreshList();
         }
+        **/
 
         private void PassList_Load(object sender, EventArgs e)
         {

@@ -21,7 +21,7 @@ namespace Password_Bank
          * Once the user clicks "Sign in", a list of passwords will be displayed (unless said list
          * is empty). 
          */
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             PassList pList = new PassList();
             pList.ShowDialog();
