@@ -14,7 +14,7 @@ namespace Password_Bank
     public partial class UpdatePass : Form
     {
         public new string Name { get; set; }
-        public string Company { get; set; }
+        public string Website { get; set; }
         public string Password { get; set; }
 
         public UpdatePass()
@@ -27,7 +27,7 @@ namespace Password_Bank
         private void UpdatePass_Load(object sender, EventArgs e)
         {
             txtName.Text = Name;
-            txtCompany.Text = Company;
+            txtWebsite.Text = Website;
             txtPassword.Text = Password;
         }
         /**
@@ -37,14 +37,14 @@ namespace Password_Bank
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             string newName = txtName.Text;
-            string newCompany = txtCompany.Text;
+            string newCompany = txtWebsite.Text;
             string newPassword = txtPassword.Text;
 
             try
             {
                 // Reads the passwords from a file and stores them into a list.
                 StreamReader reader = new StreamReader("passwords.txt");
-                Password selectedPassword = new Password(Password, Name, Company);
+                Password selectedPassword = new Password(Password, Name, Website);
                 Password newPass = new Password(newPassword, newName, newCompany);
                 List<string> passwords = new List<string>();
 

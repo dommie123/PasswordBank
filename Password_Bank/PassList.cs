@@ -42,7 +42,7 @@ namespace Password_Bank
                     UpdatePass updateForm = new UpdatePass();
 
                     updateForm.Name = pList.SelectedItems[0].SubItems[0].Text;      // User Name
-                    updateForm.Company = pList.SelectedItems[0].SubItems[1].Text;   // Company Name
+                    updateForm.Website = pList.SelectedItems[0].SubItems[1].Text;   // Company Name
                     updateForm.Password = pList.SelectedItems[0].SubItems[2].Text;  // Password
 
                     updateForm.ShowDialog();
@@ -167,7 +167,7 @@ namespace Password_Bank
                     ListViewItem item;
 
                     arr[0] = newPass.User;
-                    arr[1] = newPass.Company;
+                    arr[1] = newPass.Website;
                     arr[2] = newPass.PassDisplay;
 
                     item = new ListViewItem(arr);

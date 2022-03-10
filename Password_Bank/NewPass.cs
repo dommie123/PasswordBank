@@ -23,10 +23,10 @@ namespace Password_Bank
         private void btnCreate_Click(object sender, EventArgs e)
         {
             string name = txtName.Text;
-            string company = txtCompany.Text;
+            string website = txtWebsite.Text;
             string password = txtPassword.Text;
 
-            Password newPass = new Password(password, name, company);
+            Password newPass = new Password(password, name, website);
 
             // The following code saves the password to a file.
             try

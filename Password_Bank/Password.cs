@@ -12,15 +12,15 @@ namespace Password_Bank
         private bool isHidden = false;
 
         public string User { get; set; }
-        public string Company { get; set; }
+        public string Website { get; set; }
         public string PassDisplay { get; set; }     // Either displays the password or a string of asterisks depending on whether it is hidden
 
         // default constructor
-        public Password(string passKey, string user, string company)
+        public Password(string passKey, string user, string website)
         {
             this.passKey = passKey;
             User = user;
-            Company = company;
+            Website = website;
 
             UpdateHidden();
         }
@@ -30,7 +30,7 @@ namespace Password_Bank
         {
             this.passKey = passKey;
             User = user;
-            Company = "None";
+            Website = "None";
 
             UpdateHidden();
         }
@@ -40,7 +40,7 @@ namespace Password_Bank
         {
             this.passKey = passKey;
             User = "Unknown";
-            Company = "None";
+            Website = "None";
 
             UpdateHidden();
         }
@@ -74,7 +74,7 @@ namespace Password_Bank
 
         public override string ToString()
         {
-            return $"{User}, {Company}, {PassDisplay}";
+            return $"{User}, {Website}, {PassDisplay}";
         }
 
         /*
