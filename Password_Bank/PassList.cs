@@ -15,6 +15,9 @@ namespace Password_Bank
     {
         private bool passIsHidden = true;   // Is the password "hidden"?
 
+        public string Keyword {get; set;}   // The website to search for
+        public IList<Password> FullPassList { get; set; }
+
         public PassList()
         {
             InitializeComponent();
@@ -26,7 +29,7 @@ namespace Password_Bank
             NewPass newPassForm = new NewPass();
             newPassForm.ShowDialog();
 
-            if (!newPassForm.Visible) RefreshList();
+            if (!newPassForm.Visible) RefreshList(true);
         }
 
         // "Update Password" button
@@ -47,7 +50,7 @@ namespace Password_Bank
 
                     updateForm.ShowDialog();
 
-                    if (!updateForm.Visible) RefreshList();
+                    if (!updateForm.Visible) RefreshList(true);
                 }
                 else // If passwords are hidden, prompt the user to show the passwords before continuing.
                 {
@@ -127,39 +130,35 @@ namespace Password_Bank
             RefreshList();
         }
 
-        /** This method is obsolete because the program refreshes itself after user interaction.
-        private void btnRefresh_Click(object sender, EventArgs e)
-        {
-            RefreshList();
-        }
-        **/
-
         private void PassList_Load(object sender, EventArgs e)
         {
             pList.View = View.Details;
             pList.FullRowSelect = true;
 
             pList.Columns.Add("Name", 100);
-            pList.Columns.Add("Company", 150);
+            pList.Columns.Add("Website", 150);
             pList.Columns.Add("Password", 165);
 
-            UpdateList();
+            UpdateList(true);
         }
 
-        public void UpdateList()
+        public void UpdateList(bool firstTime)
         {
             try
             {
+                if (firstTime)
+                    FullPassList = new List<Password>();
+
                 StreamReader streamReader = new StreamReader("passwords.txt");
                 while (!streamReader.EndOfStream)
                 {
                     string line = streamReader.ReadLine();
 
                     string name = line.Substring(0, line.IndexOf(","));
-                    string company = line.Substring(line.IndexOf(",") + 2, line.LastIndexOf(",") - (name.Length + 2));
+                    string website = line.Substring(line.IndexOf(",") + 2, line.LastIndexOf(",") - (name.Length + 2));
                     string password = line.Substring(line.LastIndexOf(",") + 2);
 
-                    Password newPass = new Password(password, name, company);
+                    Password newPass = new Password(password, name, website);
 
                     if (passIsHidden) newPass.ToggleHidden();
 
@@ -172,6 +171,13 @@ namespace Password_Bank
 
                     item = new ListViewItem(arr);
                     pList.Items.Add(item);
+
+                    // If this is the first time loading the window, keep record of the unfiltered passwords.
+                    if (firstTime)
+                    {
+                        FullPassList.Add(newPass);
+                    }
+
                 }
                 streamReader.Close();
 
@@ -185,10 +191,96 @@ namespace Password_Bank
             }
         }
 
+        public void UpdateList()
+        {
+            UpdateList(false);
+        }
+
         private void RefreshList()
         {
+            RefreshList(false);
+        }
+
+        private void RefreshList(bool manipPassList)
+        {
             pList.Items.Clear();
-            UpdateList();
+            UpdateList(manipPassList);
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            Keyword = txtSearch.Text;
+
+            // If there is no keyword or the search bar is empty, display the whole list.
+            if (Keyword == "" || Keyword == null)
+            {
+                pList.Items.Clear();
+                foreach (Password pass in FullPassList)
+                {
+                    ListViewItem item = new ListViewItem(new string[] { pass.User, pass.Website, pass.PassDisplay });
+                    pList.Items.Add(item);
+                }
+                return;
+            }
+
+            // Create the enumerable that filters the passwords whose websites contain the current keyword.
+            IList<Password> filterPasswords = new List<Password>();
+            foreach (Password pass in FullPassList)
+            {
+                if (pass.Website.Contains(Keyword))
+                {
+                    filterPasswords.Add(pass);
+                }
+            }
+
+            // Clear the items and add the filtered items
+            pList.Items.Clear();
+            foreach (Password pass in filterPasswords)
+            {
+                ListViewItem item = new ListViewItem(new string[] { pass.User, pass.Website, pass.PassDisplay });
+                pList.Items.Add(item);
+            }
+        }
+
+        private void backupPasswordsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // If the passwords are hidden, prompt the user to show them and exit the method.
+            if (passIsHidden)
+            {
+                MessageBox.Show("Please show your passwords before you back them up!", "Passwords are hidden");
+                return;
+            }
+
+            // Displays a SaveFileDialog so the user can backup their passwords in case things go south.
+            SaveFileDialog backupDialog = new SaveFileDialog();
+            backupDialog.Filter = "Text File|*.txt";
+            backupDialog.Title = "Save your passwords";
+            backupDialog.ShowDialog();
+
+            // If the filename is not empty, write the passwords to the text file and save the file.
+            if (backupDialog.FileName != "")
+            {
+                try
+                {
+                    //StreamWriter writer = new StreamWriter($"{backupDialog.InitialDirectory}{backupDialog.FileName}", true);
+                    //foreach (Password pass in FullPassList)
+                    //{
+                    //    writer.WriteLine(pass);
+                    //}
+                    //writer.Close();
+
+                    string sourceFile = "passwords.txt";
+                    string destFile = $"{backupDialog.InitialDirectory}{backupDialog.FileName}";
+
+                    // To copy a file to another location and
+                    // overwrite the destination file if it already exists.
+                    System.IO.File.Copy(sourceFile, destFile, true);
+                }
+                catch (IOException exception)
+                {
+                    Console.WriteLine(exception.Message);
+                }
+            }
         }
     }
 }
