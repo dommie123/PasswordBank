@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewPass));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -70,23 +71,23 @@
             // txtName
             // 
             this.txtName.Location = new System.Drawing.Point(122, 54);
-            this.txtName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtName.Margin = new System.Windows.Forms.Padding(2);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(230, 22);
             this.txtName.TabIndex = 3;
             // 
-            // txtCompany
+            // txtWebsite
             // 
             this.txtWebsite.Location = new System.Drawing.Point(122, 97);
-            this.txtWebsite.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtWebsite.Name = "txtCompany";
+            this.txtWebsite.Margin = new System.Windows.Forms.Padding(2);
+            this.txtWebsite.Name = "txtWebsite";
             this.txtWebsite.Size = new System.Drawing.Size(230, 22);
             this.txtWebsite.TabIndex = 4;
             // 
             // txtPassword
             // 
             this.txtPassword.Location = new System.Drawing.Point(122, 140);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(2);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(230, 22);
             this.txtPassword.TabIndex = 5;
@@ -95,7 +96,7 @@
             // 
             this.btnCreate.Font = new System.Drawing.Font("Comic Sans MS", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreate.Location = new System.Drawing.Point(128, 206);
-            this.btnCreate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCreate.Margin = new System.Windows.Forms.Padding(2);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(140, 28);
             this.btnCreate.TabIndex = 6;
@@ -115,7 +116,8 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "NewPass";
             this.Text = "New Password";
             this.ResumeLayout(false);

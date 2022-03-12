@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Password_Bank));
             this.lbwelcome = new System.Windows.Forms.Label();
             this.btnSignIn = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -36,20 +37,20 @@
             // 
             this.lbwelcome.AutoSize = true;
             this.lbwelcome.Font = new System.Drawing.Font("Comic Sans MS", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbwelcome.Location = new System.Drawing.Point(126, 113);
-            this.lbwelcome.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lbwelcome.Location = new System.Drawing.Point(63, 58);
+            this.lbwelcome.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbwelcome.Name = "lbwelcome";
-            this.lbwelcome.Size = new System.Drawing.Size(1075, 112);
+            this.lbwelcome.Size = new System.Drawing.Size(539, 56);
             this.lbwelcome.TabIndex = 0;
             this.lbwelcome.Text = "Welcome to Password Bank!";
             // 
             // btnSignIn
             // 
             this.btnSignIn.Font = new System.Drawing.Font("Comic Sans MS", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSignIn.Location = new System.Drawing.Point(493, 409);
-            this.btnSignIn.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnSignIn.Location = new System.Drawing.Point(246, 211);
+            this.btnSignIn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSignIn.Name = "btnSignIn";
-            this.btnSignIn.Size = new System.Drawing.Size(326, 94);
+            this.btnSignIn.Size = new System.Drawing.Size(163, 49);
             this.btnSignIn.TabIndex = 1;
             this.btnSignIn.Text = "Sign In";
             this.btnSignIn.UseVisualStyleBackColor = true;
@@ -57,12 +58,13 @@
             // 
             // Password_Bank
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1306, 607);
+            this.ClientSize = new System.Drawing.Size(653, 313);
             this.Controls.Add(this.btnSignIn);
             this.Controls.Add(this.lbwelcome);
-            this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Password_Bank";
             this.Text = "Password Bank";
             this.ResumeLayout(false);

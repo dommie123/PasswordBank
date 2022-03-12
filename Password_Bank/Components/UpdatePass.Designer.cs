@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdatePass));
             this.btnUpdate = new System.Windows.Forms.Button();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtWebsite = new System.Windows.Forms.TextBox();
@@ -41,7 +42,7 @@
             // 
             this.btnUpdate.Font = new System.Drawing.Font("Comic Sans MS", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.Location = new System.Drawing.Point(130, 205);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(140, 28);
             this.btnUpdate.TabIndex = 13;
@@ -52,23 +53,23 @@
             // txtPassword
             // 
             this.txtPassword.Location = new System.Drawing.Point(124, 139);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(2);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(230, 22);
             this.txtPassword.TabIndex = 12;
             // 
-            // txtCompany
+            // txtWebsite
             // 
             this.txtWebsite.Location = new System.Drawing.Point(124, 95);
-            this.txtWebsite.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtWebsite.Name = "txtCompany";
+            this.txtWebsite.Margin = new System.Windows.Forms.Padding(2);
+            this.txtWebsite.Name = "txtWebsite";
             this.txtWebsite.Size = new System.Drawing.Size(230, 22);
             this.txtWebsite.TabIndex = 11;
             // 
             // txtName
             // 
             this.txtName.Location = new System.Drawing.Point(124, 53);
-            this.txtName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtName.Margin = new System.Windows.Forms.Padding(2);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(230, 22);
             this.txtName.TabIndex = 10;
@@ -115,7 +116,8 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "UpdatePass";
             this.Text = "Update Password";
             this.Load += new System.EventHandler(this.UpdatePass_Load);

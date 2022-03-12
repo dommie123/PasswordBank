@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PassList));
             this.pList = new System.Windows.Forms.ListView();
             this.btnToggleHide = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
@@ -143,7 +144,7 @@
             // backupPasswordsToolStripMenuItem
             // 
             this.backupPasswordsToolStripMenuItem.Name = "backupPasswordsToolStripMenuItem";
-            this.backupPasswordsToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.backupPasswordsToolStripMenuItem.Size = new System.Drawing.Size(203, 26);
             this.backupPasswordsToolStripMenuItem.Text = "Backup Passwords";
             this.backupPasswordsToolStripMenuItem.Click += new System.EventHandler(this.BackupPasswordsToolStripMenuItem_Click);
             // 
@@ -175,6 +176,7 @@
             this.Controls.Add(this.btnToggleHide);
             this.Controls.Add(this.pList);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "PassList";

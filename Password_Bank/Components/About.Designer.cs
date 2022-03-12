@@ -58,6 +58,7 @@
             this.ClientSize = new System.Drawing.Size(416, 293);
             this.Controls.Add(this.rtbAbout);
             this.Controls.Add(this.lbAbout);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "About";
             this.Text = "About";
             this.ResumeLayout(false);
