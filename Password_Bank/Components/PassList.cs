@@ -127,7 +127,7 @@ namespace Password_Bank
         private void BtnToggleHideClick(object sender, EventArgs e)
         {
             passIsHidden = !passIsHidden;
-            RefreshList();
+            RefreshList(true);
         }
 
         private void PassList_Load(object sender, EventArgs e)
@@ -142,11 +142,11 @@ namespace Password_Bank
             UpdateList(true);
         }
 
-        public void UpdateList(bool firstTime)
+        public void UpdateList(bool updateFullPassList)
         {
             try
             {
-                if (firstTime)
+                if (updateFullPassList)
                     FullPassList = new List<Password>();
 
                 StreamReader streamReader = new StreamReader("passwords.txt");
@@ -173,7 +173,7 @@ namespace Password_Bank
                     pList.Items.Add(item);
 
                     // If this is the first time loading the window, keep record of the unfiltered passwords.
-                    if (firstTime)
+                    if (updateFullPassList)
                     {
                         FullPassList.Add(newPass);
                     }
