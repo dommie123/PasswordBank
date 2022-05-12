@@ -32,12 +32,13 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
+            this.btnForgotPass = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(143, 81);
+            this.button1.Location = new System.Drawing.Point(56, 82);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(108, 39);
             this.button1.TabIndex = 0;
@@ -63,11 +64,23 @@
             this.txtPassword.TabIndex = 2;
             this.txtPassword.TextChanged += new System.EventHandler(this.TxtPassword_TextChanged);
             // 
+            // btnForgotPass
+            // 
+            this.btnForgotPass.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnForgotPass.Location = new System.Drawing.Point(207, 82);
+            this.btnForgotPass.Name = "btnForgotPass";
+            this.btnForgotPass.Size = new System.Drawing.Size(148, 39);
+            this.btnForgotPass.TabIndex = 3;
+            this.btnForgotPass.Text = "Forgot Password";
+            this.btnForgotPass.UseVisualStyleBackColor = true;
+            this.btnForgotPass.Click += new System.EventHandler(this.ForgotPassword_Click);
+            // 
             // SigninWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(383, 133);
+            this.Controls.Add(this.btnForgotPass);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
@@ -84,5 +97,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.Button btnForgotPass;
     }
 }

@@ -74,5 +74,18 @@ namespace Password_Bank.Components
             txtPassword.Text = asterisks;
             txtPassword.Select(txtPassword.Text.Length, 0); // move cursor to the end of the string
         }
+
+        private void ForgotPassword_Click(object sender, EventArgs e)
+        {
+            // Delete original master password
+            string path = "master_password.txt";
+            File.Delete(path);
+
+            // Bring up Signup Window
+            SignupWindow signup = new SignupWindow();
+            signup.ShowDialog();
+
+            this.Hide();
+        }
     }
 }

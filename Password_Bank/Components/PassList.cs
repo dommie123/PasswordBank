@@ -42,11 +42,12 @@ namespace Password_Bank
                 {
                     ListViewItem selectedItem = pList.SelectedItems[0];
 
-                    UpdatePass updateForm = new UpdatePass();
-
-                    updateForm.Name = pList.SelectedItems[0].SubItems[0].Text;      // User Name
-                    updateForm.Website = pList.SelectedItems[0].SubItems[1].Text;   // Company Name
-                    updateForm.Password = pList.SelectedItems[0].SubItems[2].Text;  // Password
+                    UpdatePass updateForm = new UpdatePass
+                    {
+                        Name = pList.SelectedItems[0].SubItems[0].Text,      // User Name
+                        Website = pList.SelectedItems[0].SubItems[1].Text,   // Company Name
+                        Password = pList.SelectedItems[0].SubItems[2].Text  // Password
+                    };
 
                     updateForm.ShowDialog();
 
@@ -280,6 +281,34 @@ namespace Password_Bank
         {
             Components.About about = new Components.About();
             about.ShowDialog();
+        }
+
+        private void CopyWebsiteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!passIsHidden)
+                Clipboard.SetText(pList.SelectedItems[0].SubItems[2].Text);
+            else
+                MessageBox.Show("Please show passwords before copying", "Passwords are hidden");
+        }
+
+        private void CmCopyPaste_Opening(object sender, CancelEventArgs e)
+        {
+            cmCopyPaste.Items.Clear();
+
+            if (pList.SelectedItems.Count > 0)
+            {
+                string selectedSite = pList.SelectedItems[0].SubItems[1].Text;
+
+                cmCopyPaste.Items.Add($"Copy {selectedSite}");
+                cmCopyPaste.Items[0].Click += new EventHandler(CopyWebsiteToolStripMenuItem_Click);
+            }
+            else
+            {
+                cmCopyPaste.Items.Add("Nothing to copy!");
+                cmCopyPaste.Items[0].Enabled = false;
+            }
+
+            e.Cancel = false;
         }
     }
 }
