@@ -44,5 +44,11 @@ namespace Password_Bank
                 signup.ShowDialog();
             }
         }
+
+        private void btnDebug_Click(object sender, EventArgs e)
+        {
+            Components.TestContextMenuForm debug = new Components.TestContextMenuForm();
+            debug.ShowDialog();
+        }
     }
 }
